@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>福陶坊酒庄 — 纯粮酿造 喝多少补多少</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #060B18; color: #C9B99A; max-width: 750px; margin: 0 auto; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  img { -webkit-user-drag: none; user-select: none; }
+
+  /* ===== 全局粒子 ===== */
+  #particles { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+  .particle { position: absolute; border-radius: 50%; animation: particleFloat linear infinite; }
+  @keyframes particleFloat { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; } }
+
+  /* ===== HERO ===== */
+  .hero { position: relative; min-height: 100vh; background: linear-gradient(170deg, #060B18 0%, #0D1B2A 30%, #1B2838 50%, #0D1B2A 70%, #060B18 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 30px 40px; overflow: hidden; }
+  .hero-aurora { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, transparent 30%, rgba(184,157,104,0.04) 45%, rgba(184,157,104,0.08) 50%, rgba(184,157,104,0.04) 55%, transparent 70%); background-size: 300% 300%; animation: auroraShift 12s ease-in-out infinite; }
+  @keyframes auroraShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+
+  .hero-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(184,157,104,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,157,104,0.03) 1px, transparent 1px); background-size: 60px 60px; animation: gridDrift 20s linear infinite; }
+  @keyframes gridDrift { 0% { transform: translate(0,0); } 100% { transform: translate(60px,60px); } }
+
+  .hero-ring { position: absolute; border: 1px solid rgba(184,157,104,0.08); border-radius: 50%; }
+  .hero-ring:nth-child(3) { width: 400px; height: 400px; top: 50%; left: 50%; margin: -200px 0 0 -200px; animation: ringExpand 5s ease-out infinite; }
+  .hero-ring:nth-child(4) { width: 600px; height: 600px; top: 50%; left: 50%; margin: -300px 0 0 -300px; animation: ringExpand 5s ease-out 1.5s infinite; }
+  .hero-ring:nth-child(5) { width: 800px; height: 800px; top: 50%; left: 50%; margin: -400px 0 0 -400px; animation: ringExpand 5s ease-out 3s infinite; }
+  @keyframes ringExpand { 0% { transform: scale(0.7); opacity: 0.5; } 100% { transform: scale(1.2); opacity: 0; } }
+
+  .hero-diamond { position: absolute; width: 8px; height: 8px; background: rgba(184,157,104,0.3); transform: rotate(45deg); animation: diamondFloat 6s ease-in-out infinite; }
+  .hero-diamond:nth-of-type(6) { top: 20%; left: 15%; animation-delay: 0s; }
+  .hero-diamond:nth-of-type(7) { top: 35%; right: 10%; animation-delay: 2s; }
+  .hero-diamond:nth-of-type(8) { bottom: 25%; left: 20%; animation-delay: 4s; }
+  .hero-diamond:nth-of-type(9) { bottom: 30%; right: 15%; animation-delay: 1s; }
+  @keyframes diamondFloat { 0%,100% { transform: rotate(45deg) translateY(0); opacity: 0.3; } 50% { transform: rotate(45deg) translateY(-15px); opacity: 0.8; } }
+
+  .hero-badge { position: relative; z-index: 2; display: inline-block; background: linear-gradient(135deg, rgba(184,157,104,0.15), rgba(184,157,104,0.05)); border: 1px solid rgba(184,157,104,0.3); color: #B89D68; font-family: 'Noto Serif SC', serif; font-size: 12px; font-weight: 600; padding: 6px 24px; border-radius: 2px; letter-spacing: 4px; margin-bottom: 36px; animation: fadeSlideDown 1s ease both; text-transform: uppercase; }
+  @keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
+
+  .hero-title { position: relative; z-index: 2; font-family: 'Noto Serif SC', serif; font-size: 52px; font-weight: 900; background: linear-gradient(135deg, #D4B896 0%, #F0E6D3 30%, #B89D68 60%, #D4B896 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeSlideUp 1s ease 0.3s both, goldShimmer 4s linear infinite; letter-spacing: 6px; line-height: 1.3; }
+  .hero-title span { display: block; font-size: 24px; font-weight: 400; letter-spacing: 8px; margin-top: 12px; background: linear-gradient(135deg, rgba(201,185,154,0.9), rgba(184,157,104,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes goldShimmer { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
+
+  .hero-divider { position: relative; z-index: 2; width: 80px; height: 1px; background: linear-gradient(90deg, transparent, #B89D68, transparent); margin: 24px auto; animation: fadeSlideUp 1s ease 0.5s both; }
+
+  .hero-sub { position: relative; z-index: 2; font-family: 'Noto Serif SC', serif; font-size: 18px; color: rgba(201,185,154,0.7); letter-spacing: 6px; animation: fadeSlideUp 1s ease 0.7s both; }
+
+  .hero-tags { position: relative; z-index: 2; display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; justify-content: center; animation: fadeSlideUp 1s ease 0.9s both; }
+  .hero-tags .tag { font-size: 12px; color: rgba(184,157,104,0.7); padding: 6px 16px; border: 1px solid rgba(184,157,104,0.15); letter-spacing: 2px; transition: all 0.3s; }
+  .hero-tags .tag:hover { border-color: rgba(184,157,104,0.4); color: #B89D68; }
+
+  .hero-cta { position: relative; z-index: 2; margin-top: 44px; animation: fadeSlideUp 1s ease 1.1s both; }
+  .hero-cta a { display: inline-block; font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 600; color: #060B18; background: linear-gradient(135deg, #D4B896, #B89D68); padding: 14px 44px; letter-spacing: 4px; text-decoration: none; border: 1px solid rgba(184,157,104,0.5); transition: all 0.4s; }
+  .hero-cta a:active { transform: scale(0.96); box-shadow: 0 0 30px rgba(184,157,104,0.3); }
+
+  .scroll-hint { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 2; animation: scrollPulse 2.5s ease-in-out infinite; }
+  .scroll-hint span { display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(184,157,104,0.5), transparent); margin: 0 auto 6px; }
+  .scroll-hint p { font-size: 10px; color: rgba(184,157,104,0.4); letter-spacing: 3px; }
+  @keyframes scrollPulse { 0%,100% { opacity: 0.4; transform: translateX(-50%) translateY(0); } 50% { opacity: 1; transform: translateX(-50%) translateY(6px); } }
+
+  /* ===== TRUST ===== */
+  .trust { position: relative; background: linear-gradient(180deg, #060B18, #0A1628, #060B18); padding: 70px 24px; text-align: center; overflow: hidden; }
+  .trust::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(to bottom, rgba(184,157,104,0.3), transparent); }
+  .section-label { display: inline-block; font-family: 'Noto Serif SC', serif; font-size: 11px; color: #B89D68; letter-spacing: 6px; margin-bottom: 16px; text-transform: uppercase; position: relative; }
+  .section-label::before, .section-label::after { content: ''; position: absolute; top: 50%; width: 30px; height: 1px; background: rgba(184,157,104,0.3); }
+  .section-label::before { right: calc(100% + 12px); }
+  .section-label::after { left: calc(100% + 12px); }
+  .trust h2 { font-family: 'Noto Serif SC', serif; font-size: 28px; color: #D4B896; font-weight: 700; margin-bottom: 8px; letter-spacing: 4px; }
+  .trust .subtitle { font-size: 13px; color: rgba(201,185,154,0.4); letter-spacing: 2px; margin-bottom: 40px; }
+  .trust-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+  .trust-item { background: rgba(184,157,104,0.03); border: 1px solid rgba(184,157,104,0.08); border-radius: 4px; padding: 28px 12px; transition: all 0.4s; position: relative; overflow: hidden; }
+  .trust-item::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(184,157,104,0.05), transparent); transition: left 0.6s; }
+  .trust-item:hover::after { left: 100%; }
+  .trust-item .icon { font-size: 32px; margin-bottom: 12px; }
+  .trust-item h4 { font-family: 'Noto Serif SC', serif; font-size: 15px; color: #D4B896; font-weight: 600; margin-bottom: 8px; letter-spacing: 2px; }
+  .trust-item p { font-size: 11px; color: rgba(201,185,154,0.4); line-height: 1.7; }
+
+  /* ===== REBATE ===== */
+  .rebate { position: relative; background: linear-gradient(180deg, #060B18, #0F1A2E, #060B18); padding: 70px 24px; text-align: center; overflow: hidden; }
+  .rebate::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(184,157,104,0.04) 0%, transparent 70%); animation: rebateGlow 4s ease-in-out infinite alternate; }
+  @keyframes rebateGlow { from { transform: translate(-50%,-50%) scale(0.8); opacity: 0.5; } to { transform: translate(-50%,-50%) scale(1.2); opacity: 1; } }
+  .rebate h2 { font-family: 'Noto Serif SC', serif; font-size: 30px; color: #D4B896; font-weight: 700; margin-bottom: 8px; letter-spacing: 4px; position: relative; z-index: 1; }
+  .rebate .subtitle { font-size: 13px; color: rgba(201,185,154,0.4); letter-spacing: 2px; margin-bottom: 36px; position: relative; z-index: 1; }
+  .rebate-flow { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
+  .rebate-step { background: rgba(184,157,104,0.04); border: 1px solid rgba(184,157,104,0.12); border-radius: 4px; padding: 20px 14px; width: 100px; transition: all 0.4s; }
+  .rebate-step:hover { border-color: rgba(184,157,104,0.3); background: rgba(184,157,104,0.08); }
+  .rebate-step .emoji { font-size: 26px; margin-bottom: 8px; }
+  .rebate-step .text { font-family: 'Noto Serif SC', serif; font-size: 12px; font-weight: 600; color: #B89D68; letter-spacing: 1px; }
+  .rebate-arrow { font-size: 20px; color: rgba(184,157,104,0.3); }
+
+  /* ===== PRODUCTS ===== */
+  .products { position: relative; background: linear-gradient(180deg, #060B18, #081220, #060B18); padding: 60px 14px 30px; overflow: hidden; }
+  .products-header { text-align: center; margin-bottom: 36px; position: relative; z-index: 1; }
+  .products-header h2 { font-family: 'Noto Serif SC', serif; font-size: 28px; color: #D4B896; font-weight: 700; letter-spacing: 4px; margin-bottom: 8px; }
+  .products-header .subtitle { font-size: 12px; color: rgba(201,185,154,0.35); letter-spacing: 3px; }
+  .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: relative; z-index: 1; }
+  .product-card { background: rgba(184,157,104,0.02); border: 1px solid rgba(184,157,104,0.06); border-radius: 4px; overflow: hidden; transition: all 0.4s; }
+  .product-card:hover { border-color: rgba(184,157,104,0.2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+  .product-img { width: 100%; height: 200px; background: linear-gradient(135deg, #0D1520, #111D2E); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+  .product-card:hover .product-img img { transform: scale(1.05); }
+  .product-tag { position: absolute; top: 8px; left: 8px; background: rgba(184,157,104,0.9); color: #060B18; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 2px; letter-spacing: 1px; z-index: 2; }
+  .product-info { padding: 12px; }
+  .product-info h4 { font-family: 'Noto Serif SC', serif; font-size: 13px; color: #D4B896; font-weight: 600; margin-bottom: 4px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; letter-spacing: 1px; }
+  .product-info .spec { font-size: 10px; color: rgba(201,185,154,0.35); margin-bottom: 8px; letter-spacing: 1px; }
+  .product-bottom { display: flex; align-items: center; justify-content: space-between; }
+  .product-price { font-family: 'Noto Serif SC', serif; font-size: 20px; color: #D4B896; font-weight: 700; }
+  .product-price small { font-size: 11px; font-weight: 400; }
+  .product-points { font-size: 9px; color: #B89D68; background: rgba(184,157,104,0.08); padding: 2px 6px; border-radius: 2px; border: 1px solid rgba(184,157,104,0.15); letter-spacing: 1px; }
+  .product-btn { display: block; text-align: center; background: linear-gradient(135deg, rgba(184,157,104,0.15), rgba(184,157,104,0.05)); border-top: 1px solid rgba(184,157,104,0.08); color: #B89D68; font-size: 11px; font-weight: 600; padding: 10px; text-decoration: none; letter-spacing: 2px; transition: all 0.3s; }
+  .product-btn:hover { background: rgba(184,157,104,0.2); color: #D4B896; }
+
+  /* ===== VIDEO ===== */
+  .video-section { position: relative; background: linear-gradient(180deg, #060B18, #0A1628, #060B18); padding: 60px 20px; text-align: center; overflow: hidden; }
+  .video-section h2 { font-family: 'Noto Serif SC', serif; font-size: 24px; color: #D4B896; font-weight: 700; letter-spacing: 4px; margin-bottom: 8px; position: relative; z-index: 1; }
+  .video-section .subtitle { font-size: 12px; color: rgba(201,185,154,0.35); letter-spacing: 3px; margin-bottom: 28px; position: relative; z-index: 1; }
+  .video-wrapper { border-radius: 4px; overflow: hidden; border: 1px solid rgba(184,157,104,0.1); max-width: 600px; margin: 0 auto; background: #000; position: relative; z-index: 1; }
+  .video-wrapper video { width: 100%; display: block; }
+  .video-placeholder { width: 100%; height: 220px; background: linear-gradient(135deg, #0D1520, #111D2E); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; }
+  .video-placeholder .play-icon { width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(184,157,104,0.4); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #B89D68; margin-bottom: 10px; animation: playPulse 3s ease-in-out infinite; }
+  @keyframes playPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(184,157,104,0.2); } 50% { box-shadow: 0 0 0 15px rgba(184,157,104,0); } }
+  .video-placeholder span { font-size: 12px; color: rgba(201,185,154,0.4); letter-spacing: 2px; }
+
+  /* ===== ACTION ===== */
+  .action { position: relative; background: linear-gradient(180deg, #060B18, #0D1B2A, #060B18); padding: 70px 24px 40px; text-align: center; overflow: hidden; }
+  .action::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 50px; background: linear-gradient(to bottom, rgba(184,157,104,0.3), transparent); }
+  .action h2 { font-family: 'Noto Serif SC', serif; font-size: 26px; color: #D4B896; font-weight: 700; letter-spacing: 4px; margin-bottom: 12px; position: relative; z-index: 1; }
+  .action > p { font-size: 13px; color: rgba(201,185,154,0.45); line-height: 1.8; margin-bottom: 36px; position: relative; z-index: 1; letter-spacing: 1px; }
+  .qr-row { display: flex; gap: 20px; justify-content: center; margin-bottom: 36px; position: relative; z-index: 1; flex-wrap: wrap; }
+  .qr-card { background: rgba(184,157,104,0.03); border: 1px solid rgba(184,157,104,0.1); border-radius: 4px; padding: 20px 16px; text-align: center; width: 200px; transition: all 0.4s; }
+  .qr-card:hover { border-color: rgba(184,157,104,0.25); }
+  .qr-card img { width: 160px; height: 160px; border-radius: 4px; margin-bottom: 12px; }
+  .qr-card .qr-label { font-family: 'Noto Serif SC', serif; font-size: 14px; color: #D4B896; font-weight: 600; letter-spacing: 2px; }
+  .qr-card .qr-desc { font-size: 11px; color: rgba(201,185,154,0.35); margin-top: 6px; letter-spacing: 1px; }
+  .action-btn { display: inline-block; font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 600; color: #060B18; background: linear-gradient(135deg, #D4B896, #B89D68); padding: 14px 44px; letter-spacing: 4px; text-decoration: none; border: 1px solid rgba(184,157,104,0.5); transition: all 0.4s; position: relative; z-index: 1; }
+  .action-btn:active { transform: scale(0.96); }
+  .action-footer { margin-top: 50px; padding-top: 24px; border-top: 1px solid rgba(184,157,104,0.08); position: relative; z-index: 1; }
+  .action-footer .brand-name { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #B89D68; letter-spacing: 8px; margin-bottom: 8px; }
+  .action-footer p { font-size: 11px; color: rgba(201,185,154,0.3); letter-spacing: 2px; }
+
+  /* ===== FLOAT BAR ===== */
+  .float-bar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 750px; background: rgba(6,11,24,0.95); backdrop-filter: blur(20px); display: flex; align-items: center; padding: 10px 16px; border-top: 1px solid rgba(184,157,104,0.1); z-index: 100; gap: 12px; }
+  .float-bar .bar-info { flex: 1; }
+  .float-bar .bar-info .bar-title { font-family: 'Noto Serif SC', serif; font-size: 14px; font-weight: 600; color: #D4B896; letter-spacing: 2px; }
+  .float-bar .bar-info .bar-sub { font-size: 10px; color: rgba(201,185,154,0.35); letter-spacing: 1px; }
+  .float-bar .bar-btn { font-family: 'Noto Serif SC', serif; background: linear-gradient(135deg, #D4B896, #B89D68); color: #060B18; font-size: 12px; font-weight: 700; padding: 10px 24px; border-radius: 2px; text-decoration: none; white-space: nowrap; letter-spacing: 2px; }
+  .bottom-spacer { height: 60px; }
+
+  /* ===== SCROLL ANIMATIONS ===== */
+  .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1); }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ===== LOADING SCREEN ===== */
+  .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #060B18; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.6s, visibility 0.6s; }
+  .loading-screen.hidden { opacity: 0; visibility: hidden; }
+  .loading-logo { font-family: 'Noto Serif SC', serif; font-size: 36px; color: #D4B896; letter-spacing: 8px; animation: loadPulse 1.5s ease-in-out infinite; }
+  @keyframes loadPulse { 0%,100% { opacity: 0.4; transform: scale(0.98); } 50% { opacity: 1; transform: scale(1); } }
+  .loading-bar { width: 120px; height: 1px; background: rgba(184,157,104,0.15); margin-top: 24px; position: relative; overflow: hidden; }
+  .loading-bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, #B89D68, transparent); animation: loadBar 1.5s ease-in-out infinite; }
+  @keyframes loadBar { 0% { left: -100%; } 100% { left: 100%; } }
+
+  /* ===== BACK TO TOP ===== */
+  .back-top { position: fixed; bottom: 80px; right: 16px; width: 40px; height: 40px; background: rgba(184,157,104,0.12); border: 1px solid rgba(184,157,104,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 99; opacity: 0; transform: translateY(10px); transition: all 0.4s; cursor: pointer; }
+  .back-top.show { opacity: 1; transform: translateY(0); }
+  .back-top:active { background: rgba(184,157,104,0.25); }
+  .back-top svg { width: 18px; height: 18px; fill: #B89D68; }
+
+  /* ===== MARQUEE ===== */
+  .marquee { overflow: hidden; background: rgba(184,157,104,0.03); border-top: 1px solid rgba(184,157,104,0.06); border-bottom: 1px solid rgba(184,157,104,0.06); padding: 10px 0; position: relative; z-index: 1; }
+  .marquee-track { display: flex; animation: marqueeScroll 20s linear infinite; white-space: nowrap; }
+  .marquee-track span { font-family: 'Noto Serif SC', serif; font-size: 12px; color: rgba(184,157,104,0.4); letter-spacing: 4px; padding: 0 40px; flex-shrink: 0; }
+  @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+  /* ===== SECTION DIVIDER ===== */
+  .section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(184,157,104,0.15), transparent); position: relative; z-index: 1; }
+  .section-divider::after { content: '◆'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #060B18; padding: 0 12px; font-size: 8px; color: rgba(184,157,104,0.3); }
+
+  /* ===== SHIMMER CARD ===== */
+  .product-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(184,157,104,0.04), transparent); z-index: 1; pointer-events: none; transition: left 0.8s; }
+  .product-card:hover::before { left: 120%; }
+  .product-card { position: relative; }
+
+  /* ===== COUNTER ANIMATION ===== */
+  .stat-row { display: flex; justify-content: center; gap: 30px; margin-top: 20px; position: relative; z-index: 1; }
+  .stat-item { text-align: center; }
+  .stat-num { font-family: 'Noto Serif SC', serif; font-size: 28px; color: #D4B896; font-weight: 700; }
+  .stat-label { font-size: 10px; color: rgba(201,185,154,0.35); letter-spacing: 2px; margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<!-- Loading Screen -->
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-logo">福陶坊</div>
+  <div class="loading-bar"></div>
+</div>
+
+<!-- Back to Top -->
+<div class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</div>
+
+<section class="hero">
+  <div class="hero-aurora"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-diamond"></div>
+  <div class="hero-diamond"></div>
+  <div class="hero-diamond"></div>
+  <div class="hero-diamond"></div>
+
+  <div class="hero-badge">JIANGSU SHUANGGOU BREWERY</div>
+  <h1 class="hero-title">福陶坊<span>纯粮酿造 · 喝多少补多少</span></h1>
+  <div class="hero-divider"></div>
+  <p class="hero-sub">陶坛储酒 · 福酿醇香</p>
+  <div class="hero-tags">
+    <span class="tag">纯粮固态发酵</span>
+    <span class="tag">陶坛陈藏工艺</span>
+    <span class="tag">消费全返积分</span>
+    <span class="tag">PICC品质承保</span>
+  </div>
+  <div class="hero-cta"><a href="#products">浏览全部臻品</a></div>
+  <div class="scroll-hint"><span></span><p>SCROLL</p></div>
+</section>
+
+<div class="marquee"><div class="marquee-track"><span>纯粮固态发酵</span><span>◆</span><span>陶坛陈藏工艺</span><span>◆</span><span>消费全返积分</span><span>◆</span><span>PICC品质承保</span><span>◆</span><span>江苏双沟酿酒厂出品</span><span>◆</span><span>纯粮固态发酵</span><span>◆</span><span>陶坛陈藏工艺</span><span>◆</span><span>消费全返积分</span><span>◆</span><span>PICC品质承保</span><span>◆</span><span>江苏双沟酿酒厂出品</span><span>◆</span></div></div>
+
+<section class="trust">
+  <div class="section-label reveal">BRAND VALUE</div>
+  <h2 class="reveal">每一滴 皆是匠心</h2>
+  <p class="subtitle reveal">源自江苏双沟酿酒厂 · 传承固态酿造工艺</p>
+  <div class="trust-grid">
+    <div class="trust-item reveal"><div class="icon"></div><h4>纯粮酿造</h4><p>精选优质高粱等粮食<br>固态发酵 拒绝勾兑</p></div>
+    <div class="trust-item reveal"><div class="icon">🏺</div><h4>陶坛储酒</h4><p>传统陶坛陈藏工艺<br>酒体老熟 口感醇和</p></div>
+    <div class="trust-item reveal"><div class="icon">🛡️</div><h4>PICC承保</h4><p>中国人保质量承保<br>品质保障 安心之选</p></div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<section class="rebate">
+  <div class="section-label reveal">REWARD MODEL</div>
+  <h2 class="reveal">喝多少 补多少</h2>
+  <p class="subtitle reveal">福陶坊独家积分返利体系</p>
+  <div class="rebate-flow reveal">
+    <div class="rebate-step"><div class="emoji"></div><div class="text">下单购酒</div></div>
+    <div class="rebate-arrow">›</div>
+    <div class="rebate-step"><div class="emoji"></div><div class="text">获赠积分</div></div>
+    <div class="rebate-arrow">›</div>
+    <div class="rebate-step"><div class="emoji"></div><div class="text">积分抵扣</div></div>
+    <div class="rebate-arrow">›</div>
+    <div class="rebate-step"><div class="emoji"></div><div class="text">循环回馈</div></div>
+  </div>
+</section>
+
+<section class="products" id="products">
+  <div class="products-header">
+    <div class="section-label reveal">PRODUCTS</div>
+    <h2 class="reveal">臻选佳酿</h2>
+    <p class="subtitle reveal">礼盒馈赠 · 家宴臻品 · 一应俱全</p>
+  </div>
+  <div class="product-grid">
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=60" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">臻品</span><img src="https://malls.jincaifang.com/upload/20260911/091117890892041727.jpg" alt="臻酿6 42度" loading="lazy"></div>
+        <div class="product-info"><h4>臻酿6 整箱6盒 42度</h4><p class="spec">陶坛储酒 · 福酿醇香</p><div class="product-bottom"><span class="product-price">¥299<small>/箱</small></span><span class="product-points">赠300积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=60" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=61" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><img src="https://malls.jincaifang.com/upload/20260911/091117890894153811.jpg" alt="臻酿6 52度" loading="lazy"></div>
+        <div class="product-info"><h4>臻酿6 整箱6盒 52度</h4><p class="spec">52度浓香 · 陶坛储酒</p><div class="product-bottom"><span class="product-price">¥319<small>/箱</small></span><span class="product-points">赠320积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=61" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=46" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><img src="https://malls.jincaifang.com/upload/20260831/083117881666159441.jpg" alt="臻酿5" loading="lazy"></div>
+        <div class="product-info"><h4>臻酿5 整箱12瓶 52度</h4><p class="spec">浓香型 · 醇香顺口</p><div class="product-bottom"><span class="product-price">¥349<small>/箱</small></span><span class="product-points">赠350积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=46" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=71" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">私藏</span><img src="https://malls.jincaifang.com/upload/20260917/091717896360779316.jpg" alt="私藏" loading="lazy"></div>
+        <div class="product-info"><h4>私藏 整箱6盒 42度</h4><p class="spec">浓香型 · 红金礼盒</p><div class="product-bottom"><span class="product-price">¥449<small>/箱</small></span><span class="product-points">赠450积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=71" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=59" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">旗舰</span><img src="https://malls.jincaifang.com/upload/20260906/090617886710436459.jpg" alt="坊30 42度" loading="lazy"></div>
+        <div class="product-info"><h4>坊30 整箱6盒 42度</h4><p class="spec">匠心酿造 · 高端礼盒</p><div class="product-bottom"><span class="product-price">¥599<small>/箱</small></span><span class="product-points">赠600积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=59" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=58" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">旗舰</span><img src="https://malls.jincaifang.com/upload/20260906/090617886709895444.jpg" alt="坊30 52度" loading="lazy"></div>
+        <div class="product-info"><h4>坊30 整箱6盒 52度</h4><p class="spec">52度浓香 · 高端送礼</p><div class="product-bottom"><span class="product-price">¥649<small>/箱</small></span><span class="product-points">赠650积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=58" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=56" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">礼赠</span><img src="https://malls.jincaifang.com/upload/20260906/090617886715908278.jpg" alt="三羊开泰" loading="lazy"></div>
+        <div class="product-info"><h4>三羊开泰 整箱3盒6瓶 42度</h4><p class="spec">红金包装 · 佳节礼赠</p><div class="product-bottom"><span class="product-price">¥649<small>/箱</small></span><span class="product-points">赠650积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=56" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=57" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">双度</span><img src="https://malls.jincaifang.com/upload/20260906/090617886693476204.jpg" alt="观泓" loading="lazy"></div>
+        <div class="product-info"><h4>观泓 整箱6盒 42°+68°</h4><p class="spec">双度数组合 · 品鉴收藏</p><div class="product-bottom"><span class="product-price">¥629<small>/箱</small></span><span class="product-points">赠630积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=57" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=54" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">封坛</span><img src="https://malls.jincaifang.com/upload/20260906/090617886668461779.jpg" alt="封坛3" loading="lazy"></div>
+        <div class="product-info"><h4>封坛3 整箱6瓶×2箱 45度</h4><p class="spec">封坛陈藏 · 清澈透亮</p><div class="product-bottom"><span class="product-price">¥349<small>/2箱</small></span><span class="product-points">赠350积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=54" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=62" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><img src="https://malls.jincaifang.com/upload/20260911/091117890902259871.jpg" alt="32清坊" loading="lazy"></div>
+        <div class="product-info"><h4>32清坊 整箱6盒 42度</h4><p class="spec">清香型 · 清雅纯正</p><div class="product-bottom"><span class="product-price">¥459<small>/箱</small></span><span class="product-points">赠459积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=62" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=42" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">大口</span><img src="https://malls.jincaifang.com/upload/20260830/083017880841079959.jpg" alt="纯粮10 52度" loading="lazy"></div>
+        <div class="product-info"><h4>纯粮10 1.8L×2桶 52度</h4><p class="spec">纯10粮 · 家宴口粮</p><div class="product-bottom"><span class="product-price">¥199<small>/2桶</small></span><span class="product-points">赠200积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=42" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=43" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><img src="https://malls.jincaifang.com/upload/20260830/083017880843854525.jpg" alt="纯粮10 42度" loading="lazy"></div>
+        <div class="product-info"><h4>纯粮10 1.8L×2桶 42度</h4><p class="spec">纯10粮 · 日常囤货</p><div class="product-bottom"><span class="product-price">¥199<small>/2桶</small></span><span class="product-points">赠200积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=43" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=44" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><img src="https://malls.jincaifang.com/upload/20260830/083017880845865447.jpg" alt="纯粮20 42度" loading="lazy"></div>
+        <div class="product-info"><h4>纯粮20 1L×2桶 42度</h4><p class="spec">口粮佳品 · 聚会畅饮</p><div class="product-bottom"><span class="product-price">¥199<small>/2桶</small></span><span class="product-points">赠200积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=44" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=45" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><img src="https://malls.jincaifang.com/upload/20260830/083017880848882693.jpg" alt="纯粮20 52度" loading="lazy"></div>
+        <div class="product-info"><h4>纯粮20 1L×2桶 52度</h4><p class="spec">52度浓香 · 家常囤货</p><div class="product-bottom"><span class="product-price">¥199<small>/2桶</small></span><span class="product-points">赠200积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=45" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=23" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">超值</span><img src="https://malls.jincaifang.com/upload/20260830/083017880573117075.jpg" alt="原浆6号52度" loading="lazy"></div>
+        <div class="product-info"><h4>原浆6号 2桶 52度</h4><p class="spec">纯粮老酒 · 浓香型</p><div class="product-bottom"><span class="product-price">¥150<small>/2桶</small></span><span class="product-points">赠150积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=23" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=26" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">5斤装</span><img src="https://malls.jincaifang.com/upload/20260829/082917879985922713.jpg" alt="原浆6号整箱" loading="lazy"></div>
+        <div class="product-info"><h4>原浆6号 2桶×5斤 42度</h4><p class="spec">大容量散酒 · 聚会畅饮</p><div class="product-bottom"><span class="product-price">¥180<small>/2桶</small></span><span class="product-points">赠180积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=26" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=27" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">蓝标</span><img src="https://malls.jincaifang.com/upload/20260829/082917879984305799.jpg" alt="原浆9号蓝标" loading="lazy"></div>
+        <div class="product-info"><h4>原浆9号 2桶×3.6斤 42度</h4><p class="spec">固态发酵 · 蓝标经典</p><div class="product-bottom"><span class="product-price">¥200<small>/2桶</small></span><span class="product-points">赠200积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=27" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=28" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><img src="https://malls.jincaifang.com/upload/20260830/083017880576411744.jpg" alt="原浆9号52度" loading="lazy"></div>
+        <div class="product-info"><h4>原浆9号 2桶 52度</h4><p class="spec">52度浓香 · 大容量</p><div class="product-bottom"><span class="product-price">¥300<small>/2桶</small></span><span class="product-points">赠300积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=28" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=36" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">酒庄</span><img src="https://malls.jincaifang.com/upload/20260813/081317866104143434.jpg" alt="7号酒庄" loading="lazy"></div>
+        <div class="product-info"><h4>7号酒庄 整箱6盒 42度</h4><p class="spec">酒庄级品质 · 送礼佳品</p><div class="product-bottom"><span class="product-price">¥599<small>/箱</small></span><span class="product-points">赠600积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=36" class="product-btn">立即选购</a>
+    </div>
+
+    <div class="product-card reveal">
+      <a href="https://malls.jincaifang.com/goods.php?id=37" style="text-decoration:none;color:inherit;">
+        <div class="product-img"><span class="product-tag">馆藏</span><img src="https://malls.jincaifang.com/upload/20260813/081317866110015873.jpg" alt="馆藏" loading="lazy"></div>
+        <div class="product-info"><h4>馆藏 整箱6盒 42度</h4><p class="spec">馆藏级别 · 收藏送礼</p><div class="product-bottom"><span class="product-price">¥599<small>/箱</small></span><span class="product-points">赠600积分</span></div></div>
+      </a>
+      <a href="https://malls.jincaifang.com/goods.php?id=37" class="product-btn">立即选购</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="marquee"><div class="marquee-track"><span>臻酿系列 · 匠心之作</span><span>◆</span><span>纯粮老酒 · 口粮之选</span><span>◆</span><span>封坛陈藏 · 岁月醇香</span><span>◆</span><span>锦彩坊 · 品质传承</span><span>◆</span><span>消费全返 · 越喝越省</span><span>◆</span><span>臻酿系列 · 匠心之作</span><span>◆</span><span>纯粮老酒 · 口粮之选</span><span>◆</span><span>封坛陈藏 · 岁月醇香</span><span>◆</span><span>锦彩坊 · 品质传承</span><span>◆</span><span>消费全返 · 越喝越省</span><span>◆</span></div></div>
+
+<section class="video-section">
+  <div class="section-label reveal">BRAND STORY</div>
+  <h2 class="reveal">走进福陶坊</h2>
+  <p class="subtitle reveal">探索酿造之美</p>
+  <div class="video-wrapper reveal">
+    <div class="video-placeholder" id="videoPlaceholder" onclick="loadVideo()">
+      <div class="play-icon">▶</div>
+      <span>点击播放</span>
+    </div>
+    <video id="brandVideo" controls preload="none" style="display:none;" playsinline webkit-playsinline>
+      <source src="https://www.coze.cn/s/QvRr2AgI-Ts/" type="video/mp4">
+    </video>
+  </div>
+</section>
+
+<section class="action">
+  <div class="section-label reveal">JOIN US</div>
+  <h2 class="reveal">扫码开启醇香之旅</h2>
+  <p class="reveal">纯粮酿造 · 陶坛储酒 · 喝多少补多少<br>首次注册 即享积分福利</p>
+  <div class="qr-row reveal">
+    <div class="qr-card">
+      <img src="https://www.coze.cn/s/JWsKvHnvyZk/" alt="扫码注册">
+      <div class="qr-label">扫码注册</div>
+      <div class="qr-desc">新人注册领积分福利</div>
+    </div>
+    <div class="qr-card">
+      <img src="https://www.coze.cn/s/lKlA8QyLYq8/" alt="扫码购买">
+      <div class="qr-label">扫码登录购买</div>
+      <div class="qr-desc">直接下单 积分当钱花</div>
+    </div>
+  </div>
+  <a href="https://malls.jincaifang.com/" class="action-btn reveal">进入官方商城</a>
+  <div class="action-footer reveal">
+    <div class="brand-name">福陶坊</div>
+    <p>江苏福陶坊酒业有限公司 · 江苏双沟酿酒厂出品</p>
+  </div>
+</section>
+
+<div class="bottom-spacer"></div>
+
+<div class="float-bar">
+  <div class="bar-info">
+    <div class="bar-title">福陶坊酒庄</div>
+    <div class="bar-sub">消费多少补贴多少</div>
+  </div>
+  <a href="https://malls.jincaifang.com/" class="bar-btn">进入商城</a>
+</div>
+
+<script>
+(function(){
+  var c = document.getElementById('particles');
+  var colors = ['rgba(184,157,104,0.3)','rgba(212,184,150,0.2)','rgba(160,140,100,0.25)','rgba(200,175,130,0.15)'];
+  for(var i=0;i<35;i++){
+    var p=document.createElement('div');
+    p.className='particle';
+    var s=Math.random()*3+1;
+    p.style.width=s+'px'; p.style.height=s+'px';
+    p.style.left=Math.random()*100+'%';
+    p.style.background=colors[Math.floor(Math.random()*colors.length)];
+    p.style.animationDuration=(Math.random()*10+8)+'s';
+    p.style.animationDelay=(Math.random()*12)+'s';
+    c.appendChild(p);
+  }
+})();
+
+function loadVideo(){
+  document.getElementById('videoPlaceholder').style.display='none';
+  var v=document.getElementById('brandVideo');
+  v.style.display='block'; v.load(); v.play();
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener('click',function(e){
+    e.preventDefault();
+    var t=document.querySelector(a.getAttribute('href'));
+    if(t) t.scrollIntoView({behavior:'smooth'});
+  });
+});
+
+// Loading screen
+window.addEventListener('load', function(){ setTimeout(function(){ document.getElementById('loadingScreen').classList.add('hidden'); }, 1000); });
+
+// Back to top
+window.addEventListener('scroll', function(){
+  var btn = document.getElementById('backTop');
+  if(btn) btn.classList.toggle('show', window.scrollY > 400);
+});
+
+// Enhanced reveal with stagger for product cards
+var observer = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ e.target.classList.add('visible'); }
+  });
+},{threshold:0.05});
+
+document.querySelectorAll('.product-card').forEach(function(card, i){
+  card.style.transitionDelay = (i % 6) * 0.08 + 's';
+  observer.observe(card);
+});
+
+document.querySelectorAll('.reveal').forEach(function(el){
+  if(!el.closest('.product-card')) observer.observe(el);
+});
+
+// Parallax hero
+window.addEventListener('scroll', function(){
+  var hero = document.querySelector('.hero');
+  var y = window.scrollY;
+  if(hero && y < 600) hero.style.transform = 'translateY(' + (y * 0.12) + 'px)';
+});
+</script>
+
+</body>
+</html>
