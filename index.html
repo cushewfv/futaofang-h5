@@ -10,7 +10,7 @@
   @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
   * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html { scroll-behavior: smooth; }
-  body { font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #060B18; color: #C9B99A; max-width: 750px; margin: 0 auto; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+  body { font-family: 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #FAF8F5; color: #2C1810; max-width: 750px; margin: 0 auto; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
   img { -webkit-user-drag: none; user-select: none; }
 
   /* ===== 全局粒子 ===== */
@@ -19,137 +19,137 @@
   @keyframes particleFloat { 0% { transform: translateY(100vh) rotate(0deg); opacity: 0; } 5% { opacity: 1; } 95% { opacity: 1; } 100% { transform: translateY(-10vh) rotate(720deg); opacity: 0; } }
 
   /* ===== HERO ===== */
-  .hero { position: relative; min-height: 100vh; background: linear-gradient(170deg, #060B18 0%, #0D1B2A 30%, #1B2838 50%, #0D1B2A 70%, #060B18 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 30px 40px; overflow: hidden; }
-  .hero-aurora { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, transparent 30%, rgba(184,157,104,0.04) 45%, rgba(184,157,104,0.08) 50%, rgba(184,157,104,0.04) 55%, transparent 70%); background-size: 300% 300%; animation: auroraShift 12s ease-in-out infinite; }
+  .hero { position: relative; min-height: 100vh; background: linear-gradient(180deg, #FAF8F5, #F5F0E8, #FAF8F5); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 30px 40px; overflow: hidden; }
+  .hero-aurora { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, transparent 30%, rgba(166,124,82,0.04) 45%, rgba(166,124,82,0.08) 50%, rgba(166,124,82,0.04) 55%, transparent 70%); background-size: 300% 300%; animation: auroraShift 12s ease-in-out infinite; }
   @keyframes auroraShift { 0%,100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
 
-  .hero-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(184,157,104,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(184,157,104,0.03) 1px, transparent 1px); background-size: 60px 60px; animation: gridDrift 20s linear infinite; }
+  .hero-grid { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: linear-gradient(rgba(166,124,82,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(166,124,82,0.03) 1px, transparent 1px); background-size: 60px 60px; animation: gridDrift 20s linear infinite; }
   @keyframes gridDrift { 0% { transform: translate(0,0); } 100% { transform: translate(60px,60px); } }
 
-  .hero-ring { position: absolute; border: 1px solid rgba(184,157,104,0.08); border-radius: 50%; }
+  .hero-ring { position: absolute; border: 1px solid rgba(166,124,82,0.08); border-radius: 50%; }
   .hero-ring:nth-child(3) { width: 400px; height: 400px; top: 50%; left: 50%; margin: -200px 0 0 -200px; animation: ringExpand 5s ease-out infinite; }
   .hero-ring:nth-child(4) { width: 600px; height: 600px; top: 50%; left: 50%; margin: -300px 0 0 -300px; animation: ringExpand 5s ease-out 1.5s infinite; }
   .hero-ring:nth-child(5) { width: 800px; height: 800px; top: 50%; left: 50%; margin: -400px 0 0 -400px; animation: ringExpand 5s ease-out 3s infinite; }
   @keyframes ringExpand { 0% { transform: scale(0.7); opacity: 0.5; } 100% { transform: scale(1.2); opacity: 0; } }
 
-  .hero-diamond { position: absolute; width: 8px; height: 8px; background: rgba(184,157,104,0.3); transform: rotate(45deg); animation: diamondFloat 6s ease-in-out infinite; }
+  .hero-diamond { position: absolute; width: 8px; height: 8px; background: rgba(166,124,82,0.3); transform: rotate(45deg); animation: diamondFloat 6s ease-in-out infinite; }
   .hero-diamond:nth-of-type(6) { top: 20%; left: 15%; animation-delay: 0s; }
   .hero-diamond:nth-of-type(7) { top: 35%; right: 10%; animation-delay: 2s; }
   .hero-diamond:nth-of-type(8) { bottom: 25%; left: 20%; animation-delay: 4s; }
   .hero-diamond:nth-of-type(9) { bottom: 30%; right: 15%; animation-delay: 1s; }
   @keyframes diamondFloat { 0%,100% { transform: rotate(45deg) translateY(0); opacity: 0.3; } 50% { transform: rotate(45deg) translateY(-15px); opacity: 0.8; } }
 
-  .hero-badge { position: relative; z-index: 2; display: inline-block; background: linear-gradient(135deg, rgba(184,157,104,0.15), rgba(184,157,104,0.05)); border: 1px solid rgba(184,157,104,0.3); color: #B89D68; font-family: 'Noto Serif SC', serif; font-size: 12px; font-weight: 600; padding: 6px 24px; border-radius: 2px; letter-spacing: 4px; margin-bottom: 36px; animation: fadeSlideDown 1s ease both; text-transform: uppercase; }
+  .hero-badge { position: relative; z-index: 2; display: inline-block; background: linear-gradient(135deg, rgba(166,124,82,0.15), rgba(166,124,82,0.05)); border: 1px solid rgba(166,124,82,0.3); color: #A67C52; font-family: 'Noto Serif SC', serif; font-size: 12px; font-weight: 600; padding: 6px 24px; border-radius: 2px; letter-spacing: 4px; margin-bottom: 36px; animation: fadeSlideDown 1s ease both; text-transform: uppercase; }
   @keyframes fadeSlideDown { from { opacity: 0; transform: translateY(-15px); } to { opacity: 1; transform: translateY(0); } }
 
   .hero-title { position: relative; z-index: 2; font-family: 'Noto Serif SC', serif; font-size: 52px; font-weight: 900; background: linear-gradient(135deg, #D4B896 0%, #F0E6D3 30%, #B89D68 60%, #D4B896 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fadeSlideUp 1s ease 0.3s both, goldShimmer 4s linear infinite; letter-spacing: 6px; line-height: 1.3; }
-  .hero-title span { display: block; font-size: 24px; font-weight: 400; letter-spacing: 8px; margin-top: 12px; background: linear-gradient(135deg, rgba(201,185,154,0.9), rgba(184,157,104,0.7)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .hero-title span { display: block; font-size: 24px; font-weight: 400; letter-spacing: 8px; margin-top: 12px; background: linear-gradient(135deg, rgba(44,24,16,0.9), rgba(166,124,82,0.9)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
   @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes goldShimmer { 0% { background-position: 0% center; } 100% { background-position: 200% center; } }
 
   .hero-divider { position: relative; z-index: 2; width: 80px; height: 1px; background: linear-gradient(90deg, transparent, #B89D68, transparent); margin: 24px auto; animation: fadeSlideUp 1s ease 0.5s both; }
 
-  .hero-sub { position: relative; z-index: 2; font-family: 'Noto Serif SC', serif; font-size: 18px; color: rgba(201,185,154,0.7); letter-spacing: 6px; animation: fadeSlideUp 1s ease 0.7s both; }
+  .hero-sub { position: relative; z-index: 2; font-family: 'Noto Serif SC', serif; font-size: 18px; color: rgba(44,24,16,0.85); letter-spacing: 6px; animation: fadeSlideUp 1s ease 0.7s both; }
 
   .hero-tags { position: relative; z-index: 2; display: flex; gap: 16px; margin-top: 32px; flex-wrap: wrap; justify-content: center; animation: fadeSlideUp 1s ease 0.9s both; }
-  .hero-tags .tag { font-size: 12px; color: rgba(184,157,104,0.7); padding: 6px 16px; border: 1px solid rgba(184,157,104,0.15); letter-spacing: 2px; transition: all 0.3s; }
-  .hero-tags .tag:hover { border-color: rgba(184,157,104,0.4); color: #B89D68; }
+  .hero-tags .tag { font-size: 12px; color: rgba(166,124,82,0.9); padding: 6px 16px; border: 1px solid rgba(166,124,82,0.15); letter-spacing: 2px; transition: all 0.3s; }
+  .hero-tags .tag:hover { border-color: rgba(166,124,82,0.6); color: #A67C52; }
 
   .hero-cta { position: relative; z-index: 2; margin-top: 44px; animation: fadeSlideUp 1s ease 1.1s both; }
-  .hero-cta a { display: inline-block; font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 600; color: #060B18; background: linear-gradient(135deg, #D4B896, #B89D68); padding: 14px 44px; letter-spacing: 4px; text-decoration: none; border: 1px solid rgba(184,157,104,0.5); transition: all 0.4s; }
-  .hero-cta a:active { transform: scale(0.96); box-shadow: 0 0 30px rgba(184,157,104,0.3); }
+  .hero-cta a { display: inline-block; font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 600; color: #FAF8F5; background: linear-gradient(135deg, #B8860B, #A67C52); padding: 14px 44px; letter-spacing: 4px; text-decoration: none; border: 1px solid rgba(166,124,82,0.5); transition: all 0.4s; }
+  .hero-cta a:active { transform: scale(0.96); box-shadow: 0 0 30px rgba(166,124,82,0.3); }
 
   .scroll-hint { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); z-index: 2; animation: scrollPulse 2.5s ease-in-out infinite; }
-  .scroll-hint span { display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(184,157,104,0.5), transparent); margin: 0 auto 6px; }
-  .scroll-hint p { font-size: 10px; color: rgba(184,157,104,0.4); letter-spacing: 3px; }
+  .scroll-hint span { display: block; width: 1px; height: 40px; background: linear-gradient(to bottom, rgba(166,124,82,0.5), transparent); margin: 0 auto 6px; }
+  .scroll-hint p { font-size: 10px; color: rgba(166,124,82,0.6); letter-spacing: 3px; }
   @keyframes scrollPulse { 0%,100% { opacity: 0.4; transform: translateX(-50%) translateY(0); } 50% { opacity: 1; transform: translateX(-50%) translateY(6px); } }
 
   /* ===== TRUST ===== */
-  .trust { position: relative; background: linear-gradient(180deg, #060B18, #0A1628, #060B18); padding: 70px 24px; text-align: center; overflow: hidden; }
-  .trust::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(to bottom, rgba(184,157,104,0.3), transparent); }
-  .section-label { display: inline-block; font-family: 'Noto Serif SC', serif; font-size: 11px; color: #B89D68; letter-spacing: 6px; margin-bottom: 16px; text-transform: uppercase; position: relative; }
-  .section-label::before, .section-label::after { content: ''; position: absolute; top: 50%; width: 30px; height: 1px; background: rgba(184,157,104,0.3); }
+  .trust { position: relative; background: linear-gradient(180deg, #FAF8F5, #EDE6DC, #FAF8F5); padding: 70px 24px; text-align: center; overflow: hidden; }
+  .trust::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 60px; background: linear-gradient(to bottom, rgba(166,124,82,0.3), transparent); }
+  .section-label { display: inline-block; font-family: 'Noto Serif SC', serif; font-size: 11px; color: #A67C52; letter-spacing: 6px; margin-bottom: 16px; text-transform: uppercase; position: relative; }
+  .section-label::before, .section-label::after { content: ''; position: absolute; top: 50%; width: 30px; height: 1px; background: rgba(166,124,82,0.3); }
   .section-label::before { right: calc(100% + 12px); }
   .section-label::after { left: calc(100% + 12px); }
-  .trust h2 { font-family: 'Noto Serif SC', serif; font-size: 28px; color: #D4B896; font-weight: 700; margin-bottom: 8px; letter-spacing: 4px; }
-  .trust .subtitle { font-size: 13px; color: rgba(201,185,154,0.4); letter-spacing: 2px; margin-bottom: 40px; }
+  .trust h2 { font-family: 'Noto Serif SC', serif; font-size: 28px; color: #B8860B; font-weight: 700; margin-bottom: 8px; letter-spacing: 4px; }
+  .trust .subtitle { font-size: 13px; color: rgba(44,24,16,0.75); letter-spacing: 2px; margin-bottom: 40px; }
   .trust-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-  .trust-item { background: rgba(184,157,104,0.03); border: 1px solid rgba(184,157,104,0.08); border-radius: 4px; padding: 28px 12px; transition: all 0.4s; position: relative; overflow: hidden; }
-  .trust-item::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(184,157,104,0.05), transparent); transition: left 0.6s; }
+  .trust-item { background: rgba(166,124,82,0.03); border: 1px solid rgba(166,124,82,0.08); border-radius: 4px; padding: 28px 12px; transition: all 0.4s; position: relative; overflow: hidden; }
+  .trust-item::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(166,124,82,0.05), transparent); transition: left 0.6s; }
   .trust-item:hover::after { left: 100%; }
   .trust-item .icon { font-size: 32px; margin-bottom: 12px; }
-  .trust-item h4 { font-family: 'Noto Serif SC', serif; font-size: 15px; color: #D4B896; font-weight: 600; margin-bottom: 8px; letter-spacing: 2px; }
-  .trust-item p { font-size: 11px; color: rgba(201,185,154,0.4); line-height: 1.7; }
+  .trust-item h4 { font-family: 'Noto Serif SC', serif; font-size: 15px; color: #B8860B; font-weight: 600; margin-bottom: 8px; letter-spacing: 2px; }
+  .trust-item p { font-size: 11px; color: rgba(44,24,16,0.75); line-height: 1.7; }
 
   /* ===== REBATE ===== */
-  .rebate { position: relative; background: linear-gradient(180deg, #060B18, #0F1A2E, #060B18); padding: 70px 24px; text-align: center; overflow: hidden; }
-  .rebate::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(184,157,104,0.04) 0%, transparent 70%); animation: rebateGlow 4s ease-in-out infinite alternate; }
+  .rebate { position: relative; background: linear-gradient(180deg, #FAF8F5, #F0EAE0, #FAF8F5); padding: 70px 24px; text-align: center; overflow: hidden; }
+  .rebate::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(166,124,82,0.04) 0%, transparent 70%); animation: rebateGlow 4s ease-in-out infinite alternate; }
   @keyframes rebateGlow { from { transform: translate(-50%,-50%) scale(0.8); opacity: 0.5; } to { transform: translate(-50%,-50%) scale(1.2); opacity: 1; } }
-  .rebate h2 { font-family: 'Noto Serif SC', serif; font-size: 30px; color: #D4B896; font-weight: 700; margin-bottom: 8px; letter-spacing: 4px; position: relative; z-index: 1; }
-  .rebate .subtitle { font-size: 13px; color: rgba(201,185,154,0.4); letter-spacing: 2px; margin-bottom: 36px; position: relative; z-index: 1; }
+  .rebate h2 { font-family: 'Noto Serif SC', serif; font-size: 30px; color: #B8860B; font-weight: 700; margin-bottom: 8px; letter-spacing: 4px; position: relative; z-index: 1; }
+  .rebate .subtitle { font-size: 13px; color: rgba(44,24,16,0.75); letter-spacing: 2px; margin-bottom: 36px; position: relative; z-index: 1; }
   .rebate-flow { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; z-index: 1; }
-  .rebate-step { background: rgba(184,157,104,0.04); border: 1px solid rgba(184,157,104,0.12); border-radius: 4px; padding: 20px 14px; width: 100px; transition: all 0.4s; }
-  .rebate-step:hover { border-color: rgba(184,157,104,0.3); background: rgba(184,157,104,0.08); }
+  .rebate-step { background: rgba(166,124,82,0.04); border: 1px solid rgba(166,124,82,0.12); border-radius: 4px; padding: 20px 14px; width: 100px; transition: all 0.4s; }
+  .rebate-step:hover { border-color: rgba(166,124,82,0.3); background: rgba(166,124,82,0.08); }
   .rebate-step .emoji { font-size: 26px; margin-bottom: 8px; }
-  .rebate-step .text { font-family: 'Noto Serif SC', serif; font-size: 12px; font-weight: 600; color: #B89D68; letter-spacing: 1px; }
-  .rebate-arrow { font-size: 20px; color: rgba(184,157,104,0.3); }
+  .rebate-step .text { font-family: 'Noto Serif SC', serif; font-size: 12px; font-weight: 600; color: #A67C52; letter-spacing: 1px; }
+  .rebate-arrow { font-size: 20px; color: rgba(166,124,82,0.3); }
 
   /* ===== PRODUCTS ===== */
-  .products { position: relative; background: linear-gradient(180deg, #060B18, #081220, #060B18); padding: 60px 14px 30px; overflow: hidden; }
+  .products { position: relative; background: linear-gradient(180deg, #FAF8F5, #F5F0E8, #FAF8F5); padding: 60px 14px 30px; overflow: hidden; }
   .products-header { text-align: center; margin-bottom: 36px; position: relative; z-index: 1; }
-  .products-header h2 { font-family: 'Noto Serif SC', serif; font-size: 28px; color: #D4B896; font-weight: 700; letter-spacing: 4px; margin-bottom: 8px; }
-  .products-header .subtitle { font-size: 12px; color: rgba(201,185,154,0.35); letter-spacing: 3px; }
+  .products-header h2 { font-family: 'Noto Serif SC', serif; font-size: 28px; color: #B8860B; font-weight: 700; letter-spacing: 4px; margin-bottom: 8px; }
+  .products-header .subtitle { font-size: 12px; color: rgba(44,24,16,0.5); letter-spacing: 3px; }
   .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: relative; z-index: 1; }
-  .product-card { background: rgba(184,157,104,0.02); border: 1px solid rgba(184,157,104,0.06); border-radius: 4px; overflow: hidden; transition: all 0.4s; }
-  .product-card:hover { border-color: rgba(184,157,104,0.2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
-  .product-img { width: 100%; height: 200px; background: linear-gradient(135deg, #0D1520, #111D2E); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+  .product-card { background: rgba(166,124,82,0.02); border: 1px solid rgba(166,124,82,0.06); border-radius: 4px; overflow: hidden; transition: all 0.4s; }
+  .product-card:hover { border-color: rgba(166,124,82,0.2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.3); }
+  .product-img { width: 100%; height: 200px; background: linear-gradient(135deg, #F0EAE0, #EDE6DC); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
   .product-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
   .product-card:hover .product-img img { transform: scale(1.05); }
-  .product-tag { position: absolute; top: 8px; left: 8px; background: rgba(184,157,104,0.9); color: #060B18; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 2px; letter-spacing: 1px; z-index: 2; }
+  .product-tag { position: absolute; top: 8px; left: 8px; background: rgba(166,124,82,0.9); color: #2C1810; font-size: 10px; font-weight: 700; padding: 3px 8px; border-radius: 2px; letter-spacing: 1px; z-index: 2; }
   .product-info { padding: 12px; }
-  .product-info h4 { font-family: 'Noto Serif SC', serif; font-size: 13px; color: #D4B896; font-weight: 600; margin-bottom: 4px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; letter-spacing: 1px; }
-  .product-info .spec { font-size: 10px; color: rgba(201,185,154,0.35); margin-bottom: 8px; letter-spacing: 1px; }
+  .product-info h4 { font-family: 'Noto Serif SC', serif; font-size: 13px; color: #B8860B; font-weight: 600; margin-bottom: 4px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; letter-spacing: 1px; }
+  .product-info .spec { font-size: 10px; color: rgba(44,24,16,0.5); margin-bottom: 8px; letter-spacing: 1px; }
   .product-bottom { display: flex; align-items: center; justify-content: space-between; }
-  .product-price { font-family: 'Noto Serif SC', serif; font-size: 20px; color: #D4B896; font-weight: 700; }
+  .product-price { font-family: 'Noto Serif SC', serif; font-size: 20px; color: #B8860B; font-weight: 700; }
   .product-price small { font-size: 11px; font-weight: 400; }
-  .product-points { font-size: 9px; color: #B89D68; background: rgba(184,157,104,0.08); padding: 2px 6px; border-radius: 2px; border: 1px solid rgba(184,157,104,0.15); letter-spacing: 1px; }
-  .product-btn { display: block; text-align: center; background: linear-gradient(135deg, rgba(184,157,104,0.15), rgba(184,157,104,0.05)); border-top: 1px solid rgba(184,157,104,0.08); color: #B89D68; font-size: 11px; font-weight: 600; padding: 10px; text-decoration: none; letter-spacing: 2px; transition: all 0.3s; }
-  .product-btn:hover { background: rgba(184,157,104,0.2); color: #D4B896; }
+  .product-points { font-size: 9px; color: #A67C52; background: rgba(166,124,82,0.08); padding: 2px 6px; border-radius: 2px; border: 1px solid rgba(166,124,82,0.15); letter-spacing: 1px; }
+  .product-btn { display: block; text-align: center; background: linear-gradient(135deg, rgba(166,124,82,0.15), rgba(166,124,82,0.05)); border-top: 1px solid rgba(166,124,82,0.08); color: #A67C52; font-size: 11px; font-weight: 600; padding: 10px; text-decoration: none; letter-spacing: 2px; transition: all 0.3s; }
+  .product-btn:hover { background: rgba(166,124,82,0.2); color: #B8860B; }
 
   /* ===== VIDEO ===== */
-  .video-section { position: relative; background: linear-gradient(180deg, #060B18, #0A1628, #060B18); padding: 60px 20px; text-align: center; overflow: hidden; }
-  .video-section h2 { font-family: 'Noto Serif SC', serif; font-size: 24px; color: #D4B896; font-weight: 700; letter-spacing: 4px; margin-bottom: 8px; position: relative; z-index: 1; }
-  .video-section .subtitle { font-size: 12px; color: rgba(201,185,154,0.35); letter-spacing: 3px; margin-bottom: 28px; position: relative; z-index: 1; }
-  .video-wrapper { border-radius: 4px; overflow: hidden; border: 1px solid rgba(184,157,104,0.1); max-width: 600px; margin: 0 auto; background: #000; position: relative; z-index: 1; }
+  .video-section { position: relative; background: linear-gradient(180deg, #FAF8F5, #EDE6DC, #FAF8F5); padding: 60px 20px; text-align: center; overflow: hidden; }
+  .video-section h2 { font-family: 'Noto Serif SC', serif; font-size: 24px; color: #B8860B; font-weight: 700; letter-spacing: 4px; margin-bottom: 8px; position: relative; z-index: 1; }
+  .video-section .subtitle { font-size: 12px; color: rgba(44,24,16,0.5); letter-spacing: 3px; margin-bottom: 28px; position: relative; z-index: 1; }
+  .video-wrapper { border-radius: 4px; overflow: hidden; border: 1px solid rgba(166,124,82,0.1); max-width: 600px; margin: 0 auto; background: #F0EAE0; position: relative; z-index: 1; }
   .video-wrapper video { width: 100%; display: block; }
-  .video-placeholder { width: 100%; height: 220px; background: linear-gradient(135deg, #0D1520, #111D2E); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; }
-  .video-placeholder .play-icon { width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(184,157,104,0.4); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #B89D68; margin-bottom: 10px; animation: playPulse 3s ease-in-out infinite; }
-  @keyframes playPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(184,157,104,0.2); } 50% { box-shadow: 0 0 0 15px rgba(184,157,104,0); } }
-  .video-placeholder span { font-size: 12px; color: rgba(201,185,154,0.4); letter-spacing: 2px; }
+  .video-placeholder { width: 100%; height: 220px; background: linear-gradient(135deg, #F0EAE0, #EDE6DC); display: flex; flex-direction: column; align-items: center; justify-content: center; cursor: pointer; }
+  .video-placeholder .play-icon { width: 56px; height: 56px; border-radius: 50%; border: 1px solid rgba(166,124,82,0.6); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #A67C52; margin-bottom: 10px; animation: playPulse 3s ease-in-out infinite; }
+  @keyframes playPulse { 0%,100% { box-shadow: 0 0 0 0 rgba(166,124,82,0.2); } 50% { box-shadow: 0 0 0 15px rgba(166,124,82,0); } }
+  .video-placeholder span { font-size: 12px; color: rgba(44,24,16,0.75); letter-spacing: 2px; }
 
   /* ===== ACTION ===== */
-  .action { position: relative; background: linear-gradient(180deg, #060B18, #0D1B2A, #060B18); padding: 70px 24px 40px; text-align: center; overflow: hidden; }
-  .action::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 50px; background: linear-gradient(to bottom, rgba(184,157,104,0.3), transparent); }
-  .action h2 { font-family: 'Noto Serif SC', serif; font-size: 26px; color: #D4B896; font-weight: 700; letter-spacing: 4px; margin-bottom: 12px; position: relative; z-index: 1; }
-  .action > p { font-size: 13px; color: rgba(201,185,154,0.45); line-height: 1.8; margin-bottom: 36px; position: relative; z-index: 1; letter-spacing: 1px; }
+  .action { position: relative; background: linear-gradient(180deg, #FAF8F5, #F5F0E8, #FAF8F5); padding: 70px 24px 40px; text-align: center; overflow: hidden; }
+  .action::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 50px; background: linear-gradient(to bottom, rgba(166,124,82,0.3), transparent); }
+  .action h2 { font-family: 'Noto Serif SC', serif; font-size: 26px; color: #B8860B; font-weight: 700; letter-spacing: 4px; margin-bottom: 12px; position: relative; z-index: 1; }
+  .action > p { font-size: 13px; color: rgba(44,24,16,0.65); line-height: 1.8; margin-bottom: 36px; position: relative; z-index: 1; letter-spacing: 1px; }
   .qr-row { display: flex; gap: 20px; justify-content: center; margin-bottom: 36px; position: relative; z-index: 1; flex-wrap: wrap; }
-  .qr-card { background: rgba(184,157,104,0.03); border: 1px solid rgba(184,157,104,0.1); border-radius: 4px; padding: 20px 16px; text-align: center; width: 200px; transition: all 0.4s; }
-  .qr-card:hover { border-color: rgba(184,157,104,0.25); }
+  .qr-card { background: rgba(166,124,82,0.03); border: 1px solid rgba(166,124,82,0.1); border-radius: 4px; padding: 20px 16px; text-align: center; width: 200px; transition: all 0.4s; }
+  .qr-card:hover { border-color: rgba(166,124,82,0.25); }
   .qr-card img { width: 160px; height: 160px; border-radius: 4px; margin-bottom: 12px; }
-  .qr-card .qr-label { font-family: 'Noto Serif SC', serif; font-size: 14px; color: #D4B896; font-weight: 600; letter-spacing: 2px; }
-  .qr-card .qr-desc { font-size: 11px; color: rgba(201,185,154,0.35); margin-top: 6px; letter-spacing: 1px; }
-  .action-btn { display: inline-block; font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 600; color: #060B18; background: linear-gradient(135deg, #D4B896, #B89D68); padding: 14px 44px; letter-spacing: 4px; text-decoration: none; border: 1px solid rgba(184,157,104,0.5); transition: all 0.4s; position: relative; z-index: 1; }
+  .qr-card .qr-label { font-family: 'Noto Serif SC', serif; font-size: 14px; color: #B8860B; font-weight: 600; letter-spacing: 2px; }
+  .qr-card .qr-desc { font-size: 11px; color: rgba(44,24,16,0.5); margin-top: 6px; letter-spacing: 1px; }
+  .action-btn { display: inline-block; font-family: 'Noto Serif SC', serif; font-size: 15px; font-weight: 600; color: #FAF8F5; background: linear-gradient(135deg, #B8860B, #A67C52); padding: 14px 44px; letter-spacing: 4px; text-decoration: none; border: 1px solid rgba(166,124,82,0.5); transition: all 0.4s; position: relative; z-index: 1; }
   .action-btn:active { transform: scale(0.96); }
-  .action-footer { margin-top: 50px; padding-top: 24px; border-top: 1px solid rgba(184,157,104,0.08); position: relative; z-index: 1; }
-  .action-footer .brand-name { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #B89D68; letter-spacing: 8px; margin-bottom: 8px; }
-  .action-footer p { font-size: 11px; color: rgba(201,185,154,0.3); letter-spacing: 2px; }
+  .action-footer { margin-top: 50px; padding-top: 24px; border-top: 1px solid rgba(166,124,82,0.08); position: relative; z-index: 1; }
+  .action-footer .brand-name { font-family: 'Noto Serif SC', serif; font-size: 22px; font-weight: 700; color: #A67C52; letter-spacing: 8px; margin-bottom: 8px; }
+  .action-footer p { font-size: 11px; color: rgba(44,24,16,0.65); letter-spacing: 2px; }
 
   /* ===== FLOAT BAR ===== */
-  .float-bar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 750px; background: rgba(6,11,24,0.95); backdrop-filter: blur(20px); display: flex; align-items: center; padding: 10px 16px; border-top: 1px solid rgba(184,157,104,0.1); z-index: 100; gap: 12px; }
+  .float-bar { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 750px; background: rgba(250,248,245,0.95); backdrop-filter: blur(20px); display: flex; align-items: center; padding: 10px 16px; border-top: 1px solid rgba(166,124,82,0.1); z-index: 100; gap: 12px; }
   .float-bar .bar-info { flex: 1; }
-  .float-bar .bar-info .bar-title { font-family: 'Noto Serif SC', serif; font-size: 14px; font-weight: 600; color: #D4B896; letter-spacing: 2px; }
-  .float-bar .bar-info .bar-sub { font-size: 10px; color: rgba(201,185,154,0.35); letter-spacing: 1px; }
-  .float-bar .bar-btn { font-family: 'Noto Serif SC', serif; background: linear-gradient(135deg, #D4B896, #B89D68); color: #060B18; font-size: 12px; font-weight: 700; padding: 10px 24px; border-radius: 2px; text-decoration: none; white-space: nowrap; letter-spacing: 2px; }
+  .float-bar .bar-info .bar-title { font-family: 'Noto Serif SC', serif; font-size: 14px; font-weight: 600; color: #B8860B; letter-spacing: 2px; }
+  .float-bar .bar-info .bar-sub { font-size: 10px; color: rgba(44,24,16,0.5); letter-spacing: 1px; }
+  .float-bar .bar-btn { font-family: 'Noto Serif SC', serif; background: linear-gradient(135deg, #B8860B, #A67C52); color: #FAF8F5; font-size: 12px; font-weight: 700; padding: 10px 24px; border-radius: 2px; text-decoration: none; white-space: nowrap; letter-spacing: 2px; }
   .bottom-spacer { height: 60px; }
 
   /* ===== SCROLL ANIMATIONS ===== */
@@ -161,40 +161,40 @@
   .reveal-delay-4 { transition-delay: 0.4s; }
 
   /* ===== LOADING SCREEN ===== */
-  .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #060B18; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.6s, visibility 0.6s; }
+  .loading-screen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #FAF8F5; z-index: 9999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.6s, visibility 0.6s; }
   .loading-screen.hidden { opacity: 0; visibility: hidden; }
-  .loading-logo { font-family: 'Noto Serif SC', serif; font-size: 36px; color: #D4B896; letter-spacing: 8px; animation: loadPulse 1.5s ease-in-out infinite; }
+  .loading-logo { font-family: 'Noto Serif SC', serif; font-size: 36px; color: #B8860B; letter-spacing: 8px; animation: loadPulse 1.5s ease-in-out infinite; }
   @keyframes loadPulse { 0%,100% { opacity: 0.4; transform: scale(0.98); } 50% { opacity: 1; transform: scale(1); } }
-  .loading-bar { width: 120px; height: 1px; background: rgba(184,157,104,0.15); margin-top: 24px; position: relative; overflow: hidden; }
-  .loading-bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, #B89D68, transparent); animation: loadBar 1.5s ease-in-out infinite; }
+  .loading-bar { width: 120px; height: 1px; background: rgba(166,124,82,0.15); margin-top: 24px; position: relative; overflow: hidden; }
+  .loading-bar::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, #B8860B, transparent); animation: loadBar 1.5s ease-in-out infinite; }
   @keyframes loadBar { 0% { left: -100%; } 100% { left: 100%; } }
 
   /* ===== BACK TO TOP ===== */
-  .back-top { position: fixed; bottom: 80px; right: 16px; width: 40px; height: 40px; background: rgba(184,157,104,0.12); border: 1px solid rgba(184,157,104,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 99; opacity: 0; transform: translateY(10px); transition: all 0.4s; cursor: pointer; }
+  .back-top { position: fixed; bottom: 80px; right: 16px; width: 40px; height: 40px; background: rgba(166,124,82,0.12); border: 1px solid rgba(166,124,82,0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; z-index: 99; opacity: 0; transform: translateY(10px); transition: all 0.4s; cursor: pointer; }
   .back-top.show { opacity: 1; transform: translateY(0); }
-  .back-top:active { background: rgba(184,157,104,0.25); }
-  .back-top svg { width: 18px; height: 18px; fill: #B89D68; }
+  .back-top:active { background: rgba(166,124,82,0.25); }
+  .back-top svg { width: 18px; height: 18px; fill: #B8860B; }
 
   /* ===== MARQUEE ===== */
-  .marquee { overflow: hidden; background: rgba(184,157,104,0.03); border-top: 1px solid rgba(184,157,104,0.06); border-bottom: 1px solid rgba(184,157,104,0.06); padding: 10px 0; position: relative; z-index: 1; }
+  .marquee { overflow: hidden; background: rgba(166,124,82,0.03); border-top: 1px solid rgba(166,124,82,0.06); border-bottom: 1px solid rgba(166,124,82,0.06); padding: 10px 0; position: relative; z-index: 1; }
   .marquee-track { display: flex; animation: marqueeScroll 20s linear infinite; white-space: nowrap; }
-  .marquee-track span { font-family: 'Noto Serif SC', serif; font-size: 12px; color: rgba(184,157,104,0.4); letter-spacing: 4px; padding: 0 40px; flex-shrink: 0; }
+  .marquee-track span { font-family: 'Noto Serif SC', serif; font-size: 12px; color: rgba(166,124,82,0.6); letter-spacing: 4px; padding: 0 40px; flex-shrink: 0; }
   @keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
   /* ===== SECTION DIVIDER ===== */
-  .section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(184,157,104,0.15), transparent); position: relative; z-index: 1; }
-  .section-divider::after { content: '◆'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #060B18; padding: 0 12px; font-size: 8px; color: rgba(184,157,104,0.3); }
+  .section-divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, rgba(166,124,82,0.15), transparent); position: relative; z-index: 1; }
+  .section-divider::after { content: '◆'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: #FAF8F5; padding: 0 12px; font-size: 8px; color: rgba(166,124,82,0.3); }
 
   /* ===== SHIMMER CARD ===== */
-  .product-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(184,157,104,0.04), transparent); z-index: 1; pointer-events: none; transition: left 0.8s; }
+  .product-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%; background: linear-gradient(90deg, transparent, rgba(166,124,82,0.04), transparent); z-index: 1; pointer-events: none; transition: left 0.8s; }
   .product-card:hover::before { left: 120%; }
   .product-card { position: relative; }
 
   /* ===== COUNTER ANIMATION ===== */
   .stat-row { display: flex; justify-content: center; gap: 30px; margin-top: 20px; position: relative; z-index: 1; }
   .stat-item { text-align: center; }
-  .stat-num { font-family: 'Noto Serif SC', serif; font-size: 28px; color: #D4B896; font-weight: 700; }
-  .stat-label { font-size: 10px; color: rgba(201,185,154,0.35); letter-spacing: 2px; margin-top: 4px; }
+  .stat-num { font-family: 'Noto Serif SC', serif; font-size: 28px; color: #B8860B; font-weight: 700; }
+  .stat-label { font-size: 10px; color: rgba(44,24,16,0.5); letter-spacing: 2px; margin-top: 4px; }
 </style>
 </head>
 <body>
@@ -387,58 +387,10 @@
       <a href="https://malls.jincaifang.com/goods.php?id=45" class="product-btn">立即选购</a>
     </div>
 
-    <div class="product-card reveal">
-      <a href="https://malls.jincaifang.com/goods.php?id=23" style="text-decoration:none;color:inherit;">
-        <div class="product-img"><span class="product-tag">超值</span><img src="https://malls.jincaifang.com/upload/20260830/083017880573117075.jpg" alt="原浆6号52度" loading="lazy"></div>
-        <div class="product-info"><h4>原浆6号 2桶 52度</h4><p class="spec">纯粮老酒 · 浓香型</p><div class="product-bottom"><span class="product-price">¥150<small>/2桶</small></span><span class="product-points">赠150积分</span></div></div>
-      </a>
-      <a href="https://malls.jincaifang.com/goods.php?id=23" class="product-btn">立即选购</a>
     </div>
-
-    <div class="product-card reveal">
-      <a href="https://malls.jincaifang.com/goods.php?id=26" style="text-decoration:none;color:inherit;">
-        <div class="product-img"><span class="product-tag">5斤装</span><img src="https://malls.jincaifang.com/upload/20260829/082917879985922713.jpg" alt="原浆6号整箱" loading="lazy"></div>
-        <div class="product-info"><h4>原浆6号 2桶×5斤 42度</h4><p class="spec">大容量散酒 · 聚会畅饮</p><div class="product-bottom"><span class="product-price">¥180<small>/2桶</small></span><span class="product-points">赠180积分</span></div></div>
-      </a>
-      <a href="https://malls.jincaifang.com/goods.php?id=26" class="product-btn">立即选购</a>
-    </div>
-
-    <div class="product-card reveal">
-      <a href="https://malls.jincaifang.com/goods.php?id=27" style="text-decoration:none;color:inherit;">
-        <div class="product-img"><span class="product-tag">蓝标</span><img src="https://malls.jincaifang.com/upload/20260829/082917879984305799.jpg" alt="原浆9号蓝标" loading="lazy"></div>
-        <div class="product-info"><h4>原浆9号 2桶×3.6斤 42度</h4><p class="spec">固态发酵 · 蓝标经典</p><div class="product-bottom"><span class="product-price">¥200<small>/2桶</small></span><span class="product-points">赠200积分</span></div></div>
-      </a>
-      <a href="https://malls.jincaifang.com/goods.php?id=27" class="product-btn">立即选购</a>
-    </div>
-
-    <div class="product-card reveal">
-      <a href="https://malls.jincaifang.com/goods.php?id=28" style="text-decoration:none;color:inherit;">
-        <div class="product-img"><img src="https://malls.jincaifang.com/upload/20260830/083017880576411744.jpg" alt="原浆9号52度" loading="lazy"></div>
-        <div class="product-info"><h4>原浆9号 2桶 52度</h4><p class="spec">52度浓香 · 大容量</p><div class="product-bottom"><span class="product-price">¥300<small>/2桶</small></span><span class="product-points">赠300积分</span></div></div>
-      </a>
-      <a href="https://malls.jincaifang.com/goods.php?id=28" class="product-btn">立即选购</a>
-    </div>
-
-    <div class="product-card reveal">
-      <a href="https://malls.jincaifang.com/goods.php?id=36" style="text-decoration:none;color:inherit;">
-        <div class="product-img"><span class="product-tag">酒庄</span><img src="https://malls.jincaifang.com/upload/20260813/081317866104143434.jpg" alt="7号酒庄" loading="lazy"></div>
-        <div class="product-info"><h4>7号酒庄 整箱6盒 42度</h4><p class="spec">酒庄级品质 · 送礼佳品</p><div class="product-bottom"><span class="product-price">¥599<small>/箱</small></span><span class="product-points">赠600积分</span></div></div>
-      </a>
-      <a href="https://malls.jincaifang.com/goods.php?id=36" class="product-btn">立即选购</a>
-    </div>
-
-    <div class="product-card reveal">
-      <a href="https://malls.jincaifang.com/goods.php?id=37" style="text-decoration:none;color:inherit;">
-        <div class="product-img"><span class="product-tag">馆藏</span><img src="https://malls.jincaifang.com/upload/20260813/081317866110015873.jpg" alt="馆藏" loading="lazy"></div>
-        <div class="product-info"><h4>馆藏 整箱6盒 42度</h4><p class="spec">馆藏级别 · 收藏送礼</p><div class="product-bottom"><span class="product-price">¥599<small>/箱</small></span><span class="product-points">赠600积分</span></div></div>
-      </a>
-      <a href="https://malls.jincaifang.com/goods.php?id=37" class="product-btn">立即选购</a>
-    </div>
-
-  </div>
 </section>
 
-<div class="marquee"><div class="marquee-track"><span>臻酿系列 · 匠心之作</span><span>◆</span><span>纯粮老酒 · 口粮之选</span><span>◆</span><span>封坛陈藏 · 岁月醇香</span><span>◆</span><span>锦彩坊 · 品质传承</span><span>◆</span><span>消费全返 · 越喝越省</span><span>◆</span><span>臻酿系列 · 匠心之作</span><span>◆</span><span>纯粮老酒 · 口粮之选</span><span>◆</span><span>封坛陈藏 · 岁月醇香</span><span>◆</span><span>锦彩坊 · 品质传承</span><span>◆</span><span>消费全返 · 越喝越省</span><span>◆</span></div></div>
+<div class="marquee"><div class="marquee-track"><span>臻酿系列 · 匠心之作</span><span>◆</span><span>纯粮老酒 · 口粮之选</span><span>◆</span><span>封坛陈藏 · 岁月醇香</span><span>◆</span><span>福陶坊 · 品质传承</span><span>◆</span><span>消费全返 · 越喝越省</span><span>◆</span><span>臻酿系列 · 匠心之作</span><span>◆</span><span>纯粮老酒 · 口粮之选</span><span>◆</span><span>封坛陈藏 · 岁月醇香</span><span>◆</span><span>福陶坊 · 品质传承</span><span>◆</span><span>消费全返 · 越喝越省</span><span>◆</span></div></div>
 
 <section class="video-section">
   <div class="section-label reveal">BRAND STORY</div>
@@ -461,7 +413,7 @@
   <p class="reveal">纯粮酿造 · 陶坛储酒 · 喝多少补多少<br>首次注册 即享积分福利</p>
   <div class="qr-row reveal">
     <div class="qr-card">
-      <img src="https://www.coze.cn/s/JWsKvHnvyZk/" alt="扫码注册">
+      <img src="https://gitee.com/n123456yc_0/futaofang-h5/raw/master/register-qrcode.jpg" alt="扫码注册">
       <div class="qr-label">扫码注册</div>
       <div class="qr-desc">新人注册领积分福利</div>
     </div>
@@ -491,7 +443,7 @@
 <script>
 (function(){
   var c = document.getElementById('particles');
-  var colors = ['rgba(184,157,104,0.3)','rgba(212,184,150,0.2)','rgba(160,140,100,0.25)','rgba(200,175,130,0.15)'];
+  var colors = ['rgba(166,124,82,0.3)','rgba(184,134,11,0.2)','rgba(160,140,100,0.25)','rgba(200,175,130,0.15)'];
   for(var i=0;i<35;i++){
     var p=document.createElement('div');
     p.className='particle';
@@ -551,6 +503,36 @@ window.addEventListener('scroll', function(){
   if(hero && y < 600) hero.style.transform = 'translateY(' + (y * 0.12) + 'px)';
 });
 </script>
+
+
+
+<!-- 公司简介文字 -->
+<section style="background:#FAF8F5;padding:50px 20px 30px;text-align:center;">
+  <h2 style="font-family:'Noto Serif SC',serif;font-size:24px;color: #B8860B;font-weight:700;letter-spacing:4px;margin-bottom:20px;">江苏双沟酿酒厂</h2>
+  <div style="width:60px;height:1px;background:linear-gradient(90deg,transparent,#B8860B,transparent);margin:0 auto 25px;"></div>
+  
+  <div style="max-width:580px;margin:0 auto;text-align:left;">
+    <div style="margin-bottom:24px;">
+      <h3 style="font-family:'Noto Serif SC',serif;font-size:15px;color: #B8860B;font-weight:600;letter-spacing:2px;margin-bottom:12px;">▎企业简介</h3>
+      <p style="font-size:13px;color:rgba(44,24,16,0.85);line-height:1.9;letter-spacing:1px;">江苏双沟酿酒厂坐落于千年酿酒名镇——双沟镇，位于淮河之畔、洪泽湖之滨，占地350亩。酒厂始于明洪武十八年（1385年）全德槽坊，历经六百余年传承，坚守纯粮固态发酵，以湿地浓香工艺酿造绵柔佳酿。</p>
+    </div>
+    
+    <div style="margin-bottom:24px;">
+      <h3 style="font-family:'Noto Serif SC',serif;font-size:15px;color: #B8860B;font-weight:600;letter-spacing:2px;margin-bottom:12px;">历史荣耀</h3>
+      <p style="font-size:13px;color:rgba(44,24,16,0.85);line-height:1.9;letter-spacing:1px;">1732年 全德槽坊创立，传承老五甑工艺<br>1910年 南洋劝业会金奖，孙中山题"双沟醴泉"<br>1943年 陈毅元帅盛赞"不愧天下第一流"<br>2017年 获评国家AAAA级旅游景区<br>至今 中国白酒工业百强企业</p>
+    </div>
+    
+    <div style="margin-bottom:24px;">
+      <h3 style="font-family:'Noto Serif SC',serif;font-size:15px;color: #B8860B;font-weight:600;letter-spacing:2px;margin-bottom:12px;">品牌矩阵</h3>
+      <p style="font-size:13px;color:rgba(44,24,16,0.85);line-height:1.9;letter-spacing:1px;">全德坊系列 · 大瓷坊系列 · 双沟老窖系列</p>
+    </div>
+    
+    <div style="text-align:center;margin-top:30px;padding-top:20px;border-top:1px solid rgba(166,124,82,0.15);">
+      <p style="font-family:'Noto Serif SC',serif;font-size:14px;color:rgba(44,24,16,0.75);letter-spacing:3px;margin-bottom:6px;">湿地浓香 · 绵柔淡雅 · 匠心传承</p>
+      <p style="font-size:12px;color:rgba(44,24,16,0.75);letter-spacing:2px;">江苏省宿迁市泗洪县双沟镇</p>
+    </div>
+  </div>
+</section>
 
 </body>
 </html>
